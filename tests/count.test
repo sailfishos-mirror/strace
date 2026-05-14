@@ -29,25 +29,41 @@ grep_log()
 	}
 }
 
+grep_log_timing()
+{
+	local overhead strace_t expected
+
+	overhead="$1"; shift
+
+	run_strace "$@" ../sleep-timing 1 "$TIMING_FILE"
+
+	grep nanosleep "$LOG" > /dev/null ||
+		framework_skip_ 'sleep-timing does not use nanosleep'
+
+	read_sleep_timing
+	strace_t=$(parse_strace_cw_time)
+	expected=$(gawk -v p="$nanosleep_sec" -v o="$overhead" 'BEGIN { print p - o }')
+	compare_timing "$strace_t" "$expected" 0.01 ||
+		timing_fail "$strace_t" "$expected" "overhead=$overhead" \
+			"$STRACE $args summary time mismatch"
+}
+
 GENERIC=' *[^ ]+ +0\.0[^n]*nanosleep *'
-WALLCLOCK=' *[^ ]+ +(1\.[01]|0\.99)[^n]*nanosleep *'
-WALLCLOCK1='100\.00 +(1\.[01]|0\.99)[^n]*nanosleep'
-HALFCLOCK=' *[^ ]+ +0\.[567][^n]*nanosleep *'
 
 grep_log "$GENERIC"	-c
 grep_log "$GENERIC"	-c -O1
 grep_log "$GENERIC"	-c --summary-syscall-overhead=1
 grep_log "$GENERIC"	-c -enanosleep
 grep_log "$GENERIC"	-c -O1 -enanosleep
-grep_log "$WALLCLOCK"	-cw
-grep_log "$WALLCLOCK"	-cw -O1
-grep_log "$WALLCLOCK1"	-cw -enanosleep
-grep_log "$WALLCLOCK1"	-cw -O1 -enanosleep
-grep_log "$HALFCLOCK"	-cw -O4.5e2ms -enanosleep
-grep_log "$HALFCLOCK"	-cw --summary-syscall-overhead=4.5e2ms -enanosleep
-grep_log "$HALFCLOCK"	-cw -O4.5e-1s -enanosleep
-grep_log "$HALFCLOCK"	-cw --summary-syscall-overhead=4.5e-1s -enanosleep
-grep_log "$HALFCLOCK"	-cw -O456789012ns -enanosleep
-grep_log "$HALFCLOCK"	-cw --summary-syscall-overhead=456789012ns -enanosleep
+grep_log_timing 0	-cw
+grep_log_timing 0	-cw -O1
+grep_log_timing 0	-cw -enanosleep
+grep_log_timing 0	-cw -O1 -enanosleep
+grep_log_timing 0.45	-cw -O4.5e2ms -enanosleep
+grep_log_timing 0.45	-cw --summary-syscall-overhead=4.5e2ms -enanosleep
+grep_log_timing 0.45	-cw -O4.5e-1s -enanosleep
+grep_log_timing 0.45	-cw --summary-syscall-overhead=4.5e-1s -enanosleep
+grep_log_timing 0.456789012	-cw -O456789012ns -enanosleep
+grep_log_timing 0.456789012	-cw --summary-syscall-overhead=456789012ns -enanosleep
 
 exit 0

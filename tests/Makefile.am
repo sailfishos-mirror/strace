@@ -415,6 +415,7 @@ check_PROGRAMS = $(PURE_EXECUTABLES) \
 	signal_receive \
 	signal_receive--pidns-translation \
 	sleep \
+	sleep-timing \
 	so_peercred--pidns-translation \
 	sockopt-sol_socket-success \
 	sockopt-sol_socket-success-Xabbrev \
