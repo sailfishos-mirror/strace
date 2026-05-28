@@ -1437,8 +1437,32 @@ has_cap_sys_ptrace(void)
 }
 
 /*
+ * If YAMA's ptrace_scope may be blocking the attach, emit a hint.
+ * Scope < 3 only restricts processes without CAP_SYS_PTRACE;
+ * scope 3 blocks all ptrace unconditionally.
+ */
+static void
+hint_yama(void)
+{
+	FILE *fp = fopen("/proc/sys/kernel/yama/ptrace_scope", "r");
+	if (!fp)
+		return;
+	int scope = 0;
+	bool read_ok = fscanf(fp, "%d", &scope) == 1;
+	fclose(fp);
+	if (!read_ok || scope <= 0)
+		return;
+	bool cap = has_cap_sys_ptrace();
+	if (scope < 3 && cap)
+		return;
+	error_msg("sysctl kernel.yama.ptrace_scope = %d"
+		  " may be restricting this attach", scope);
+}
+
+/*
  * Emit diagnostics that may explain why ptrace attach to pid failed
- * with EPERM.  Checks for an existing tracer, then signal permission.
+ * with EPERM.  Checks for an existing tracer, then signal permission;
+ * if neither applies, defers to hint_yama.
  */
 static void
 diagnose_attach_eperm(int pid)
@@ -1450,8 +1474,12 @@ diagnose_attach_eperm(int pid)
 		return;
 	}
 
-	if (!has_cap_sys_ptrace() && my_tkill(pid, 0) < 0 && errno == EPERM)
+	if (!has_cap_sys_ptrace() && my_tkill(pid, 0) < 0 && errno == EPERM) {
 		error_msg("process %d may be owned by a different user", pid);
+		return;
+	}
+
+	hint_yama();
 }
 
 static void
