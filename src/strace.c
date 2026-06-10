@@ -1399,14 +1399,45 @@ process_opt_p_list(char *opt)
 	}
 }
 
+/* Returns tracer pid if pid is already being traced, 0 if not, -1 on error. */
+static int
+proc_pid_tracer(int pid)
+{
+	char path[sizeof("/proc/%d/status") + sizeof(int) * 3];
+	xsprintf(path, "/proc/%d/status", pid);
+	FILE *fp = fopen(path, "r");
+	if (!fp)
+		return -1;
+	char line[256];
+	int tracer = 0;
+	while (fgets(line, sizeof(line), fp))
+		if (sscanf(line, "TracerPid: %d", &tracer) == 1)
+			break;
+	fclose(fp);
+	return tracer;
+}
+
+/* Emit diagnostics that may explain why ptrace attach to pid failed with EPERM. */
+static void
+diagnose_attach_eperm(int pid)
+{
+	int tracer_pid = proc_pid_tracer(pid);
+	if (tracer_pid > 0)
+		error_msg("Process %d is already being traced by pid %d",
+			  pid, tracer_pid);
+}
+
 static void
 attach_tcb(struct tcb *const tcp)
 {
 	const char *ptrace_attach_cmd;
 
 	if (ptrace_attach_or_seize(tcp->pid, &ptrace_attach_cmd) < 0) {
+		int saved_errno = errno;
 		perror_msg("attach: ptrace(%s, %d)",
 			   ptrace_attach_cmd, tcp->pid);
+		if (saved_errno == EPERM)
+			diagnose_attach_eperm(tcp->pid);
 		droptcb(tcp);
 		return;
 	}
