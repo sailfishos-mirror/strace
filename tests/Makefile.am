@@ -645,6 +645,7 @@ DECODER_TESTS = \
 MISC_TESTS = \
 	attach-f-p.test \
 	attach-p-cmd.test \
+	attach-p-eperm-already-traced.test \
 	bexecve.test \
 	clone_ptrace.test \
 	count-f.test \
