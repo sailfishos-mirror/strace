@@ -1417,14 +1417,41 @@ proc_pid_tracer(int pid)
 	return tracer;
 }
 
-/* Emit diagnostics that may explain why ptrace attach to pid failed with EPERM. */
+/* Returns true if strace holds CAP_SYS_PTRACE. */
+static bool
+has_cap_sys_ptrace(void)
+{
+	static int cached = -1;
+	if (cached >= 0)
+		return cached;
+	FILE *fp = fopen("/proc/self/status", "r");
+	if (!fp)
+		return (cached = 0);
+	char line[256];
+	unsigned long long capeff = 0;
+	while (fgets(line, sizeof(line), fp))
+		if (sscanf(line, "CapEff: %llx", &capeff) == 1)
+			break;
+	fclose(fp);
+	return (cached = (capeff >> 19) & 1); /* CAP_SYS_PTRACE */
+}
+
+/*
+ * Emit diagnostics that may explain why ptrace attach to pid failed
+ * with EPERM.  Checks for an existing tracer, then signal permission.
+ */
 static void
 diagnose_attach_eperm(int pid)
 {
 	int tracer_pid = proc_pid_tracer(pid);
-	if (tracer_pid > 0)
+	if (tracer_pid > 0) {
 		error_msg("Process %d is already being traced by pid %d",
 			  pid, tracer_pid);
+		return;
+	}
+
+	if (!has_cap_sys_ptrace() && my_tkill(pid, 0) < 0 && errno == EPERM)
+		error_msg("process %d may be owned by a different user", pid);
 }
 
 static void
