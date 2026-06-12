@@ -647,6 +647,7 @@ MISC_TESTS = \
 	attach-p-cmd.test \
 	attach-p-eperm-already-traced.test \
 	attach-p-eperm-signal.test \
+	attach-p-eperm-yama.test \
 	bexecve.test \
 	clone_ptrace.test \
 	count-f.test \
