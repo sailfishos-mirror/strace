@@ -25,6 +25,8 @@ jobs:
 
   coverage: # the longest of all build jobs
     name: Check coverage
+    permissions:
+      id-token: write # for OIDC authentication
     runs-on: ubuntu-latest
     env:
       CHECK: coverage
@@ -45,8 +47,8 @@ jobs:
         uses: codecov/codecov-action@e79a6962e0d4c0c17b229090214935d2e33f8354	# v6.0.1
         with:
           fail_ci_if_error: true
+          use_oidc: true
           plugins: gcov
-          token: ${{ secrets.CODECOV_TOKEN }}
           working-directory: src
 
   build-check:
