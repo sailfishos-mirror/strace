@@ -13,6 +13,7 @@ See the file [NEWS](NEWS) for information on what has changed in recent versions
 - [Contributing Guide](CONTRIBUTING.md) - How to contribute to strace
 - [Building from Git](INSTALL-git.md) - Build instructions for git repository
 - [User Manual](doc/strace.1.in) - Man page (also available as `man strace` after installation)
+- [Security Policy](SECURITY.md) - Vulnerability reporting and security information
 
 Development of strace primarily takes place on
 [GitHub](https://github.com/strace/strace) -- everyone is welcome to open
