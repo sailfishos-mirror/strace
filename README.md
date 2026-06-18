@@ -8,9 +8,12 @@ strace test suite is released under the terms of [the GNU General Public License
 
 See the file [NEWS](NEWS) for information on what has changed in recent versions.
 
-Please read the file [INSTALL-git](INSTALL-git.md) for installation instructions.
-
 Please take a look at [the guide for new contributors](https://strace.io/wiki/NewContributorGuide) if you want to get involved in strace development.
+
+## Documentation
+
+- [Building from Git](INSTALL-git.md) - Build instructions for git repository
+- [User Manual](doc/strace.1.in) - Man page (also available as `man strace` after installation)
 
 Development of strace primarily takes place on
 [GitHub](https://github.com/strace/strace) -- everyone is welcome to open
