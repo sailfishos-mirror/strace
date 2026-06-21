@@ -84,7 +84,7 @@ For the full Linux kernel coding style reference:
 
 ## Documentation
 
-All changes must be documented — see doc/COMMIT-MESSAGES.md for message format requirements.
+See [doc/README.md](doc/README.md) for the comprehensive documentation index.
 
 ## Testing
 
