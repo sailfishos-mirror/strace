@@ -19,6 +19,12 @@ Task-oriented step-by-step guides for common development tasks.
 - [HOWTO_UPDATE_XLAT_AFTER_UAPI.md](HOWTO_UPDATE_XLAT_AFTER_UAPI.md) — Updating xlat tables after kernel UAPI changes
 - [COMMIT-MESSAGES.md](COMMIT-MESSAGES.md) — Commit message format requirements (required reading for contributors)
 
+## Architecture and Reference
+
+Understanding how strace works internally.
+
+- [DECODER_API.md](DECODER_API.md) — Print helper reference for syscall argument decoding
+
 ## Subsystem Documentation
 
 Deep dives into specific subsystems and specialized topics.
