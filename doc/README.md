@@ -10,6 +10,7 @@ Start here if you're new to strace development.
 
 - [CONTRIBUTING.md](../CONTRIBUTING.md) — How to contribute: code style, commit messages, testing requirements, and submission process
 - [HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md) — Adding a syscall decoder (the most common contributor task)
+- [GLOSSARY.md](GLOSSARY.md) — Project terminology (tcb, xlat, SEN, MPERS, etc.)
 
 ## How-To Guides
 
@@ -24,6 +25,7 @@ Task-oriented step-by-step guides for common development tasks.
 Understanding how strace works internally.
 
 - [DECODER_API.md](DECODER_API.md) — Print helper reference for syscall argument decoding
+- [GLOSSARY.md](GLOSSARY.md) — Terminology definitions
 
 ## Subsystem Documentation
 

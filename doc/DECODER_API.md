@@ -3,8 +3,9 @@
 This document provides the definitive API reference for writing syscall
 and ioctl decoders in strace.
 
-For a step-by-step tutorial with examples, see
-[HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md).
+For step-by-step tutorials with examples, see
+[HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md). For term definitions, see
+[GLOSSARY.md](GLOSSARY.md).
 
 ## Decoder Framework
 
@@ -37,6 +38,8 @@ Return values can be combined: `return RVAL_DECODED | RVAL_FD;`
 
 For one-phase decoders, return `RVAL_DECODED`. For two-phase decoders,
 return `0` from `entering()` to get called again at `exiting()`.
+
+See [GLOSSARY.md](GLOSSARY.md) for detailed return value semantics.
 
 ### Syscall State Queries
 
@@ -892,6 +895,8 @@ SYS_FUNC(getpid)
 
 - **[HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md)** - Step-by-step
   guide with examples for adding syscall decoders
+- **[GLOSSARY.md](GLOSSARY.md)** - Term definitions including RVAL
+  semantics, decoder concepts, xlat system
 - **src/print_fields.h** - PRINT_FIELD macro definitions (940 lines)
 - **src/defs.h** - Function prototypes and core definitions (2200+
   lines)
