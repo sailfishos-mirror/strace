@@ -10,6 +10,7 @@ Start here if you're new to strace development.
 
 - [CONTRIBUTING.md](../CONTRIBUTING.md) — How to contribute: code style, commit messages, testing requirements, and submission process
 - [HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md) — Adding a syscall decoder (the most common contributor task)
+- [HOWTO_TEST.md](HOWTO_TEST.md) — Writing and running tests
 - [GLOSSARY.md](GLOSSARY.md) — Project terminology (tcb, xlat, SEN, MPERS, etc.)
 
 ## How-To Guides
@@ -18,6 +19,7 @@ Task-oriented step-by-step guides for common development tasks.
 
 - [HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md) — Adding new syscall decoders
 - [HOWTO_UPDATE_XLAT_AFTER_UAPI.md](HOWTO_UPDATE_XLAT_AFTER_UAPI.md) — Updating xlat tables after kernel UAPI changes
+- [HOWTO_TEST.md](HOWTO_TEST.md) — Writing, running, and debugging tests
 - [COMMIT-MESSAGES.md](COMMIT-MESSAGES.md) — Commit message format requirements (required reading for contributors)
 
 ## Architecture and Reference

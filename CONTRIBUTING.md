@@ -88,7 +88,13 @@ See [doc/README.md](doc/README.md) for the comprehensive documentation index.
 
 ## Testing
 
-All new features and bug fixes must include tests.
+All new features and bug fixes must include tests. See
+[doc/HOWTO_TEST.md](doc/HOWTO_TEST.md) for comprehensive information on:
+
+- Running tests (full suite, specific tests, verbose output)
+- Writing test programs
+- Test registration
+- Framework helpers and common patterns
 
 ## Documentation Requirements
 
