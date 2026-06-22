@@ -3,9 +3,10 @@
 This document provides the definitive API reference for writing syscall
 and ioctl decoders in strace.
 
-For step-by-step tutorials with examples, see
-[HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md). For term definitions, see
-[GLOSSARY.md](GLOSSARY.md).
+For conceptual information and architecture, see
+[INTERNALS.md](INTERNALS.md). For step-by-step tutorials with examples,
+see [HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md). For term definitions,
+see [GLOSSARY.md](GLOSSARY.md).
 
 ## Decoder Framework
 
@@ -893,6 +894,8 @@ SYS_FUNC(getpid)
 
 ## See Also
 
+- **[INTERNALS.md](INTERNALS.md)** - Architecture and design
+  overview: ptrace event loop, decoder dispatch, syscall tables
 - **[HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md)** - Step-by-step
   guide with examples for adding syscall decoders
 - **[GLOSSARY.md](GLOSSARY.md)** - Term definitions including RVAL

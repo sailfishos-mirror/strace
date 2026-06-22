@@ -267,6 +267,7 @@ to (file, desc, process, etc.).
 
 - [DECODER_API.md](DECODER_API.md) - Print helper and decoder API
   reference
+- [INTERNALS.md](INTERNALS.md) - Architecture and design overview
 - [HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md) - Adding syscall decoders
 - [README-xlat.md](README-xlat.md) - Xlat system documentation
 - [README-mpers.md](README-mpers.md) - MPERS system documentation

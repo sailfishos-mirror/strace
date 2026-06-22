@@ -24,6 +24,7 @@ Task-oriented step-by-step guides for common development tasks.
 
 Understanding how strace works internally.
 
+- [INTERNALS.md](INTERNALS.md) — Architecture overview: ptrace, event loop, decoders, syscall dispatch
 - [DECODER_API.md](DECODER_API.md) — Print helper reference for syscall argument decoding
 - [GLOSSARY.md](GLOSSARY.md) — Terminology definitions
 
