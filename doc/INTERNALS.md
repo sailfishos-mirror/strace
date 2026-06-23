@@ -5,8 +5,9 @@ internally. It's intended for developers who want to understand the
 codebase structure, contribute to strace, or debug complex issues.
 
 For the decoder API reference, see [DECODER_API.md](DECODER_API.md).
-For a step-by-step tutorial, see [HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md).
-For term definitions, see [GLOSSARY.md](GLOSSARY.md).
+For step-by-step tutorials, see [HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md)
+and [HOWTO_ADD_IOCTL.md](HOWTO_ADD_IOCTL.md). For term definitions, see
+[GLOSSARY.md](GLOSSARY.md).
 
 ## High-Level Architecture
 
@@ -486,6 +487,7 @@ files.
   functions, memory access, output formatting)
 - **[HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md)** -- Step-by-step
   guide for adding syscall decoders
+- **[HOWTO_ADD_IOCTL.md](HOWTO_ADD_IOCTL.md)** -- Ioctl decoder guide
 - **[README-mpers.md](README-mpers.md)** -- Multi-personality (MPERS)
   system documentation
 - **[README-xlat.md](README-xlat.md)** -- Xlat file format and

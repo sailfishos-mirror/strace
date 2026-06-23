@@ -134,6 +134,8 @@ Return value flag meaning "the syscall returns a thread/process ID"
 Return value flag used by ioctl sub-decoders to indicate the decoder has
 printed the argument. Converted to `RVAL_DECODED` by `SYS_FUNC(ioctl)`.
 
+See [HOWTO_ADD_IOCTL.md](HOWTO_ADD_IOCTL.md) for details.
+
 ### print helpers
 
 Functions for printing decoded syscall arguments: printaddr, printstr,
@@ -269,6 +271,7 @@ to (file, desc, process, etc.).
   reference
 - [INTERNALS.md](INTERNALS.md) - Architecture and design overview
 - [HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md) - Adding syscall decoders
+- [HOWTO_ADD_IOCTL.md](HOWTO_ADD_IOCTL.md) - Adding ioctl decoders
 - [README-xlat.md](README-xlat.md) - Xlat system documentation
 - [README-mpers.md](README-mpers.md) - MPERS system documentation
 - [src/defs.h](../src/defs.h) - Core definitions and macros

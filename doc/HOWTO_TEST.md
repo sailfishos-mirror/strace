@@ -1125,6 +1125,7 @@ main(void)
 
 - [HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md) — Includes test creation as
   part of syscall addition workflow
+- [HOWTO_ADD_IOCTL.md](HOWTO_ADD_IOCTL.md) — Testing ioctl decoders
 - [DECODER_API.md](DECODER_API.md) — Print helper API reference for
   formatting output
 - `tests/init-once.sh` — Primary source of shell helper functions

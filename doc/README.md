@@ -18,6 +18,7 @@ Start here if you're new to strace development.
 Task-oriented step-by-step guides for common development tasks.
 
 - [HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md) — Adding new syscall decoders
+- [HOWTO_ADD_IOCTL.md](HOWTO_ADD_IOCTL.md) — Adding ioctl decoders for device-specific ioctl commands
 - [HOWTO_UPDATE_XLAT_AFTER_UAPI.md](HOWTO_UPDATE_XLAT_AFTER_UAPI.md) — Updating xlat tables after kernel UAPI changes
 - [HOWTO_TEST.md](HOWTO_TEST.md) — Writing, running, and debugging tests
 - [COMMIT-MESSAGES.md](COMMIT-MESSAGES.md) — Commit message format requirements (required reading for contributors)

@@ -5,8 +5,9 @@ and ioctl decoders in strace.
 
 For conceptual information and architecture, see
 [INTERNALS.md](INTERNALS.md). For step-by-step tutorials with examples,
-see [HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md). For term definitions,
-see [GLOSSARY.md](GLOSSARY.md).
+see [HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md) and
+[HOWTO_ADD_IOCTL.md](HOWTO_ADD_IOCTL.md). For term definitions, see
+[GLOSSARY.md](GLOSSARY.md).
 
 ## Decoder Framework
 
@@ -880,7 +881,9 @@ void print_itimerspec64(struct tcb *tcp, kernel_ulong_t addr)
 ## Common Patterns
 
 For decoder implementation patterns and examples, see
-[HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md) for syscall decoders.
+[HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md) for syscall decoders,
+[HOWTO_ADD_IOCTL.md](HOWTO_ADD_IOCTL.md) for ioctl decoders, and
+[INTERNALS.md](INTERNALS.md) for architectural details.
 
 Minimal example illustrating `RVAL_DECODED`:
 
@@ -898,6 +901,7 @@ SYS_FUNC(getpid)
   overview: ptrace event loop, decoder dispatch, syscall tables
 - **[HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md)** - Step-by-step
   guide with examples for adding syscall decoders
+- **[HOWTO_ADD_IOCTL.md](HOWTO_ADD_IOCTL.md)** - Ioctl decoder guide
 - **[GLOSSARY.md](GLOSSARY.md)** - Term definitions including RVAL
   semantics, decoder concepts, xlat system
 - **src/print_fields.h** - PRINT_FIELD macro definitions (940 lines)
