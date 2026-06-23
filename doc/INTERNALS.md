@@ -421,6 +421,9 @@ When strace intercepts sendto() or recvfrom() on a netlink socket:
 4. Decodes nested netlink attributes (TLV structures) using helpers
    from `src/nlattr.h`
 
+For adding netlink decoders, see
+[HOWTO_ADD_NETLINK.md](HOWTO_ADD_NETLINK.md).
+
 ### FD Path Resolution (-y)
 
 The `-y` flag enables file descriptor path decoding. The
@@ -488,6 +491,8 @@ files.
 - **[HOWTO_ADD_SYSCALL.md](HOWTO_ADD_SYSCALL.md)** -- Step-by-step
   guide for adding syscall decoders
 - **[HOWTO_ADD_IOCTL.md](HOWTO_ADD_IOCTL.md)** -- Ioctl decoder guide
+- **[HOWTO_ADD_NETLINK.md](HOWTO_ADD_NETLINK.md)** -- Netlink decoder
+  guide
 - **[README-mpers.md](README-mpers.md)** -- Multi-personality (MPERS)
   system documentation
 - **[README-xlat.md](README-xlat.md)** -- Xlat file format and
