@@ -9,6 +9,13 @@ is GPL-2.0-or-later. Bundled kernel headers are GPL-2.0 with the Linux
 syscall exception. By contributing, you agree to license your code under
 these terms.
 
+## AI-assisted Contributions
+
+Contributors must fully own their contributions — able to reason about
+them, explain design decisions, and act as the code owner. AI tools
+cannot be credited as author or co-author. As with all submissions,
+authors are responsible for ensuring license compatibility.
+
 ## Getting Started
 
 ### Getting the Source Code
