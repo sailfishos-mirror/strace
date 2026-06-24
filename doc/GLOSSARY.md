@@ -45,6 +45,8 @@ lack newer definitions. See [bundled/README.md](../bundled/README.md).
 a single traced process or thread. Contains process ID, syscall state,
 arguments, flags, and personality information.
 
+See [INTERNALS.md](INTERNALS.md) for field details.
+
 ### sysent
 
 **System call entry** - `struct_sysent` defined in `src/sysent.h`. Maps
@@ -55,6 +57,8 @@ flags, syscall name, and function pointer.
 
 **System call entry table** - Array of `struct_sysent` entries, one per
 syscall number. Located in `src/linux/{arch}/syscallent.h` files.
+
+See [INTERNALS.md](INTERNALS.md) for table structure.
 
 ### ioctlent
 
