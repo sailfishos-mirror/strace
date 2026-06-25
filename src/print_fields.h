@@ -73,6 +73,9 @@ extern void tprints_arg_name_unconditionally(const char *name);
 extern void tprints_arg_next_name_unconditionally(const char *name);
 extern void tprints_arg_name(const char *name);
 extern void tprints_arg_next_name(const char *name);
+extern void tprints_fn_begin(const char *name);
+extern void tprint_fn_next(void);
+extern void tprint_fn_end(void);
 extern void tprint_bitset_begin(void);
 extern void tprint_bitset_next(void);
 extern void tprint_bitset_end(void);
@@ -483,10 +486,10 @@ tprint_sysret_pseudo_rval(void)
 				== XLAT_STYLE_VERBOSE)			\
 			tprint_comment_begin();				\
 									\
-		tprints_arg_begin("htons");				\
+		tprints_fn_begin("htons");				\
 		unsigned short us_ = ntohs((where_).field_);		\
 		PRINT_VAL_U(us_);					\
-		tprint_arg_end();					\
+		tprint_fn_end();					\
 									\
 		if (xlat_verbose(xlat_verbosity)			\
 				== XLAT_STYLE_VERBOSE)			\

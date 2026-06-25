@@ -155,6 +155,32 @@ tprints_arg_next_name(const char *name)
 }
 
 void
+tprints_fn_begin(const char *name)
+{
+	STRACE_PRINT_COLOR_SEQ(COLOR_SYSCALL);
+	STRACE_PRINTF("%s", name);
+	STRACE_PRINT_COLOR_SEQ(COLOR_PUNCT);
+	STRACE_PRINTS("(");
+	STRACE_PRINT_COLOR_SEQ(COLOR_ARGVAL);
+}
+
+void
+tprint_fn_next(void)
+{
+	STRACE_PRINT_COLOR_SEQ(COLOR_PUNCT);
+	STRACE_PRINTS(", ");
+	STRACE_PRINT_COLOR_SEQ(COLOR_ARGVAL);
+}
+
+void
+tprint_fn_end(void)
+{
+	STRACE_PRINT_COLOR_SEQ(COLOR_PUNCT);
+	STRACE_PRINTS(")");
+	STRACE_PRINT_COLOR_SEQ(COLOR_RESET);
+}
+
+void
 tprint_bitset_begin(void)
 {
 	STRACE_PRINT_COLOR_SEQ(COLOR_PUNCT);
