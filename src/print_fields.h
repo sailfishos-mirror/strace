@@ -39,6 +39,7 @@
 
 #  define COLOR_ARGNAME 0
 #  define COLOR_ARGVAL 0
+#  define COLOR_CALL 0
 #  define COLOR_COMMENT 0
 #  define COLOR_CONST 0
 #  define COLOR_ERROR 0

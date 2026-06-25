@@ -157,7 +157,7 @@ tprints_arg_next_name(const char *name)
 void
 tprints_fn_begin(const char *name)
 {
-	STRACE_PRINT_COLOR_SEQ(COLOR_SYSCALL);
+	STRACE_PRINT_COLOR_SEQ(COLOR_CALL);
 	STRACE_PRINTF("%s", name);
 	STRACE_PRINT_COLOR_SEQ(COLOR_PUNCT);
 	STRACE_PRINTS("(");
